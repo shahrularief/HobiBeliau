@@ -46,6 +46,7 @@ class EditStock extends Page
                             ->default($this->stock['description']),
 
                         FileUpload::make('image')
+                            ->disk('public')
                             ->label('Stock Image')
                             ->image()
                             ->default($this->stock['image']),
@@ -76,6 +77,7 @@ class EditStock extends Page
 
     public function updateStock()
     {
+        \Illuminate\Support\Facades\Gate::authorize('manage-stocks');
         $data = $this->form->getState();
 
         // ✅ Check if 'image' is set and handle the array format
@@ -85,7 +87,7 @@ class EditStock extends Page
 
             // ✅ Ensure we delete the old image only if it's different
             if ($newImage !== $this->stock['image']) {
-                Storage::delete('public/' . $newImage);
+                Storage::disk('public')->delete($this->stock['image'] ?? '');
             }
 
             // ✅ Save the new image path correctly

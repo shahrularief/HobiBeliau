@@ -1,10 +1,9 @@
 <x-filament-panels::page>
     <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-bold text-white">Stock List</h1>
-        <a href="{{ route('filament.admin.pages.add-stock') }}"
-            class="bg-primary-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-primary-600 transition">
+        <h1 class="text-2xl font-bold text-gray-950 dark:text-white">Stock List</h1>
+        <x-filament::button tag="a" href="{{ route('filament.admin.pages.add-stock') }}">
             + Add Stock
-        </a>
+        </x-filament::button>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -14,7 +13,7 @@
                 <div class="flex-grow flex flex-col justify-between mt-4">
                     <div>
                         <h3 class="text-lg font-semibold text-black dark:text-white">No Stock Available.</h3>
-                        <p>Start adding them!</p>
+                        <p class="text-gray-600 dark:text-gray-300">Start adding them!</p>
                     </div>
                 </div>
             </div>
@@ -45,7 +44,7 @@
                 </div>
 
                 <!-- Card Details -->
-                <h3 class="text-lg font-semibold mt-4 text-black dark:text-white text-center">{{ $stock['title'] }}</h3>
+                <h3 class="text-lg font-semibold mt-4 text-gray-950 dark:text-white text-center">{{ $stock['title'] }}</h3>
                 {{-- <p class="text-gray-600 dark:text-gray-500 text-center">{{ $stock['description'] }}</p> --}}
                 <p class="text-gray-900 dark:text-gray-100 font-bold mt-2 text-center">Quantity: {{ $stock['quantity'] }}</p>
             </div>

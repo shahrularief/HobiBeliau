@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Hobi Beliau</title>
+        <title>Arcana Vault</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,7 +17,8 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="arcana-account font-sans antialiased">
+        <div class="arcana-demo-note">ARCANA VAULT · PORTFOLIO DEMO · NO REAL PAYMENTS</div>
         <x-banner />
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">

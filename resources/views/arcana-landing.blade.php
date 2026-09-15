@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Arcana Vault, a fictional trading card inventory site concept by Shahrul Arief.">
+  <title>Arcana Vault — TCG Inventory Concept</title>
+  <link rel="stylesheet" href="/arcana/arcana.css">
+  <script src="/arcana/arcana.js" defer></script>
+</head>
+<body>
+  <div class="demo-note"><span>Portfolio concept / TCG inventory</span><a href="https://shahrularief.github.io/#websites">Back to portfolio ↗</a></div>
+  <header class="site-header"><a class="brand" href="#top"><span class="brand-icon">✦</span> ARCANA<span>VAULT</span></a><nav aria-label="Main navigation"><a href="#inventory">Inventory</a><a href="#about">About</a></nav><a class="header-link" href="/marketplace">Enter marketplace ↗</a></header>
+  <main id="top">
+    <section class="hero"><div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> THE COLLECTION / ISSUE 01</p><h1>Find your<br>next <em>legend.</em></h1><p>A place to explore a trading card collection, check availability, and discover the pieces that complete your deck.</p><a class="primary-link" href="/marketplace">Enter marketplace <span>↗</span></a><a class="header-link" style="margin-top:16px" href="#inventory">Explore the concept collection ↓</a><div class="hero-metrics"><div><strong id="hero-unique">08</strong><span>Unique cards</span></div><div><strong id="hero-total">—</strong><span>Cards in stock</span></div><div><strong>03</strong><span>Card classes</span></div></div></div><div class="hero-feature"><span class="feature-kicker">FEATURED CARD / 001</span><div class="feature-card art-ember"><span class="card-spark">✦</span><span class="feature-type">CREATURE · FIRE</span><strong>Ember<br>Warden</strong><span class="feature-bottom">NO. 001 / ARCANA <b>✧ ✧ ✧</b></span></div><span class="feature-caption">A spark is all it takes. <b>↗</b></span></div></section>
+    <section id="inventory" class="inventory"><div class="section-title"><div><p class="eyebrow">THE ARCHIVE / LIVE INVENTORY</p><h2>Browse the <em>vault.</em></h2></div><p>Search the collection, filter by class, and check what’s currently available.</p></div><div class="inventory-toolbar"><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search cards, sets, or rarity" aria-label="Search inventory"></label><div class="filters" role="group" aria-label="Filter cards by class"><button type="button" class="active" data-filter="all" aria-pressed="true">All cards</button><button type="button" data-filter="Creature" aria-pressed="false">Creatures</button><button type="button" data-filter="Spell" aria-pressed="false">Spells</button><button type="button" data-filter="Artifact" aria-pressed="false">Artifacts</button></div><label class="sort-box">Sort <select id="sort" aria-label="Sort cards"><option value="featured">Featured</option><option value="name">Name A–Z</option><option value="stock">Stock: high to low</option></select></label></div><div class="results-line"><span id="result-count" aria-live="polite"></span><span>Fictional collection / demo data</span></div><div id="card-grid" class="card-grid"></div><p id="empty-state" class="empty-state" hidden>No cards match your search. Try another name or class.</p></section>
+    <section id="about" class="about"><span class="about-symbol">✳</span><div><p class="eyebrow">BUILT TO BROWSE</p><h2>Every card<br>has a story.</h2></div><p>Arcana Vault is an original portfolio concept for a collectible card inventory. The collection and stock numbers are sample data, designed to demonstrate a fast, responsive browsing experience.</p></section>
+  </main><footer><span>ARCANA VAULT © 2026 / FICTIONAL CONCEPT</span><a href="https://shahrularief.github.io/#websites">CREATED BY SHAHRUL ARIEF ↗</a></footer>
+</body></html>
+

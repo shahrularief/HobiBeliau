@@ -10,8 +10,27 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements \Filament\Models\Contracts\FilamentUser
 {
+    public function canAccessPanel(\Filament\Panel $panel): bool
+    {
+        return $panel->getId() === 'admin' && $this->is_admin;
+    }
+
+    public function sellerApplication(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(SellerApplication::class);
+    }
+
+    public function isApprovedSeller(): bool
+    {
+        return ! $this->selling_suspended && $this->hasSellerApproval();
+    }
+
+    public function hasSellerApproval(): bool
+    {
+        return $this->sellerApplication()->where('status', 'approved')->exists();
+    }
     use HasApiTokens;
 
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -60,6 +79,8 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
+            'is_admin' => 'boolean',
+            'selling_suspended' => 'boolean',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];

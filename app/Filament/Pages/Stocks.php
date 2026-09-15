@@ -29,9 +29,10 @@ class Stocks extends Page
 
     public function deleteStock($id)
     {
+        \Illuminate\Support\Facades\Gate::authorize('manage-stocks');
         $stock = Stock::findOrFail($id);
         if ($stock->image) {
-            Storage::delete('public/' . $stock->image);
+            Storage::disk('public')->delete($stock->image);
         }
         $stock->delete();
         session()->flash('success', 'Stock deleted successfully!');

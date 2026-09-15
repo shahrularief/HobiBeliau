@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Hobi Beliau</title>
+        <title>Arcana Vault</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,7 +17,8 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body>
+    <body class="arcana-account">
+        <div class="arcana-demo-note"><a href="{{ route('landing') }}">ARCANA VAULT · BACK TO THE VAULT ↗</a> · PORTFOLIO DEMO</div>
         <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
             {{ $slot }}
         </div>

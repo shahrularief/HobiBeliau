@@ -30,25 +30,14 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->brandName('Hobi Beliau Admin') // ✅ Custom brand name
-            ->brandLogo(asset('images/hobi.png')) // ✅ Custom logo
+            ->brandName('Arcana Vault Admin')
+            ->brandLogo(asset('arcana/logo.svg'))
             ->brandLogoHeight('16') // ✅ Logo height
             ->id('admin')
             ->path('admin')
             ->login()
-            ->registration()
-            // ->colors([
-            //     'primary' => Color::Amber,
-            //     'sidebar' => '#1E293B', // Custom Sidebar Color
-            //     'sidebar-text' => '#F8FAFC', // Sidebar Text
-            //     'background' => '#F1F5F9', // Page Background
-            // ])
             ->colors([
-                'primary' => '#f59e0b', // Amber color
-                'sidebar-background' => '#1E293B', // Dark sidebar
-                'sidebar-text' => '#F8FAFC', // Light sidebar text
-                'sidebar-item-active' => '#0F172A', // Active menu item color
-                'background' => '#F1F5F9', // Page background color
+                'primary' => Color::hex('#52784d'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -66,6 +55,17 @@ class AdminPanelProvider extends PanelProvider
             ->navigation(fn (NavigationBuilder $builder) => $builder
                 ->items([
                     // ✅ Dashboard as first item
+                    NavigationItem::make('Listing reports')->url(fn () => \App\Filament\Resources\ListingReportResource::getUrl()),
+                    NavigationItem::make('Moderation history')->url(fn () => \App\Filament\Resources\ModerationLogResource::getUrl()),
+                    NavigationItem::make('Seller applications')
+                        ->icon('heroicon-o-users')
+                        ->url(fn () => \App\Filament\Resources\SellerApplicationResource::getUrl()),
+                    NavigationItem::make('Orders')
+                        ->icon('heroicon-o-shopping-bag')
+                        ->url(fn () => \App\Filament\Resources\OrderResource::getUrl()),
+                    NavigationItem::make('Card listings')
+                        ->icon('heroicon-o-rectangle-stack')
+                        ->url(fn () => \App\Filament\Resources\ListingResource::getUrl()),
                     NavigationItem::make('Dashboard')
                         ->icon('heroicon-o-home')
                         ->url(fn () => route('filament.admin.pages.dashboard'))

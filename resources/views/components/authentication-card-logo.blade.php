@@ -1,3 +1,3 @@
 <a href="/">
-    <img src="{{ asset('images/hobi.png') }}" alt="Your App Logo" class="h-16 w-auto">
+    <img src="{{ asset('arcana/logo.svg') }}" alt="Arcana Vault" class="h-12 w-auto">
 </a>

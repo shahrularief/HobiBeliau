@@ -43,6 +43,7 @@ class AddStock extends Page implements HasForms // ✅ Implement HasForms
                             ->nullable(),
 
                         FileUpload::make('image')
+                            ->disk('public')
                             ->label('Stock Image')
                             ->image()
                             ->directory('stocks') // Saves images in storage/app/public/stocks
@@ -74,6 +75,7 @@ class AddStock extends Page implements HasForms // ✅ Implement HasForms
 
     public function save()
     {
+        \Illuminate\Support\Facades\Gate::authorize('manage-stocks');
         // Handle the save logic (Example: store in DB)
         Stock::create($this->form->getState());
 
@@ -81,4 +83,3 @@ class AddStock extends Page implements HasForms // ✅ Implement HasForms
         return redirect()->route('filament.admin.pages.stocks');
     }
 }
-
